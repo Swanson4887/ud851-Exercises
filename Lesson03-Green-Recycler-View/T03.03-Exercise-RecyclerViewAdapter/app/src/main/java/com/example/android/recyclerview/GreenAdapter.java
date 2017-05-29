@@ -15,7 +15,10 @@
  */
 package com.example.android.recyclerview;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -33,24 +36,43 @@ import android.widget.TextView;
  * contents are green.
  */
 // TODO (4) From GreenAdapter, extend RecyclerView.Adapter<NumberViewHolder>
-public class GreenAdapter {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
-    // TODO (1) Add a private int variable called mNumberItems
+    private static final String TAG = GreenAdapter.class.getSimpleName();
 
-    // TODO (2) Create a constructor for GreenAdapter that accepts an int as a parameter for numberOfItems
-    // TODO (3) Store the numberOfItems parameter in mNumberItems
+    private int mNumberItems;
 
-    // TODO (5) Override the onCreateViewHolder method
-    // TODO (6) Create and return a new NumberViewHolder within this method
+    public GreenAdapter(int numberofItems){
+        mNumberItems = numberofItems;
+    }
+    @Override
+    public NumberViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        Context context = viewGroup.getContext();
+        int layoutIdForListItem = R.layout.number_list_item;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean attachparent = false;
+        View view = inflater.inflate(layoutIdForListItem,viewGroup, attachparent);
+        NumberViewHolder viewHolder = new NumberViewHolder(view);
+        return viewHolder;
+    }
 
-    // TODO (7) Override onBindViewHolder
-    // TODO (8) Within onBindViewHolder, call holder.bind and pass in the position
+    @Override
+    public void onBindViewHolder(NumberViewHolder holder, int position) {
+        Log.d(TAG, "#" + position);
+        holder.bind(position);
+    }
 
     // TODO (9) Override getItemCount and return the number of items to display
+
+    @Override
+    public int getItemCount() {
+        return mNumberItems;
+    }
 
     /**
      * Cache of the children views for a list item.
      */
+
     class NumberViewHolder extends RecyclerView.ViewHolder {
 
         // Will display the position in the list, ie 0 through getItemCount() - 1
@@ -69,13 +91,16 @@ public class GreenAdapter {
             listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
         }
 
+
         /**
          * A method we wrote for convenience. This method will take an integer as input and
          * use that integer to display the appropriate text within a list item.
          * @param listIndex Position of the item in the list
          */
+
         void bind(int listIndex) {
             listItemNumberView.setText(String.valueOf(listIndex));
         }
     }
+
 }

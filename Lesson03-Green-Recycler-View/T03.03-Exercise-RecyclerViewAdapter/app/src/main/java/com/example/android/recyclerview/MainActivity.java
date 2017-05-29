@@ -68,5 +68,6 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
 
         mNumbersList.setAdapter(mAdapter);
+
     }
 }
