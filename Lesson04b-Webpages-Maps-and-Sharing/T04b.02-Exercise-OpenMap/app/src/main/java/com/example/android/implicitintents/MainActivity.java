@@ -113,12 +113,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     // TODO (1) Create a method called showMap with a Uri as the single parameter
-    // Do steps 2 - 4 within the showMap method
-        // TODO (2) Create an Intent with action type, Intent.ACTION_VIEW
+    private void showMap(Uri uri){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(geoLocation);
 
-        // TODO (3) Set the data of the Intent to the Uri passed into this method
 
-        // TODO (4) Verify that this Intent can be launched and then call startActivity
+        // COMPLETED (4) Verify that this Intent can be launched and then call startActivity
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
 
+    }
+    // COMPLETED (3) Set the data of the Intent to the Uri passed into this method
+        /*
+         * Using setData to set the Uri of this Intent has the exact same affect as passing it in
+         * the Intent's constructor. This is simply an alternate way of doing this.
+         */
 
 }
