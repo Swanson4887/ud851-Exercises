@@ -18,6 +18,7 @@ package com.example.android.implicitintents;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -147,7 +148,12 @@ public class MainActivity extends AppCompatActivity {
     // Do steps 2 - 4 within the shareText method
     private void shareText(String strn){
         String mimeType = "text/plain";
+        String title = "Learning How to Share";
+        String textToShare = "Hello there";
 
+        ShareCompat.IntentBuilder.from(this)
+                .setChooserTitle(title)
+                .setType(mimeType);
     }
         // TODO (2) Create a String variable called mimeType and set it to "text/plain"
 
