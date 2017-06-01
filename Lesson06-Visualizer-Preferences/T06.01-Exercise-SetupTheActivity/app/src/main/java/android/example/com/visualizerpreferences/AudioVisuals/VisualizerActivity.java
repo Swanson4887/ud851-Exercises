@@ -1,4 +1,4 @@
-package android.example.com.visualizerpreferences;
+package android.example.com.visualizerpreferences.AudioVisuals;
 
 /*
  * Copyright (C) 2016 The Android Open Source Project
@@ -18,8 +18,7 @@ package android.example.com.visualizerpreferences;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.example.com.visualizerpreferences.AudioVisuals.AudioInputReader;
-import android.example.com.visualizerpreferences.AudioVisuals.VisualizerView;
+import android.example.com.visualizerpreferences.R;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -115,10 +114,8 @@ public class VisualizerActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (1) Create a new Empty Activity named SettingsActivity; make sure to generate the
-    // activity_settings.xml layout file as well and add the activity to the manifest
 
-    // TODO (2) Add a new resource folder called menu and create visualizer_menu.xml
+
     // TODO (3) In visualizer_menu.xml create a menu item with a single item. The id should be
     // "action_settings", title should be saved in strings.xml, the item should never
     // be shown as an action, and orderInCategory should be 100

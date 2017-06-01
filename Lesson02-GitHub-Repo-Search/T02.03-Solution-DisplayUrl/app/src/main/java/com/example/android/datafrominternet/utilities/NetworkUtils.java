@@ -53,7 +53,6 @@ public class NetworkUtils {
                 .appendQueryParameter(PARAM_QUERY, githubSearchQuery)
                 .appendQueryParameter(PARAM_SORT, sortBy)
                 .build();
-
         URL url = null;
         try {
             url = new URL(builtUri.toString());
