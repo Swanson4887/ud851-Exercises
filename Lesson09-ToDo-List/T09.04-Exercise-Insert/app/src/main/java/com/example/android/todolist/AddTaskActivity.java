@@ -49,7 +49,6 @@ public class AddTaskActivity extends AppCompatActivity {
      * It retrieves user input and inserts that new task data into the underlying database.
      */
     public void onClickAddTask(View view) {
-        // Not yet implemented
         // TODO (6) Check if EditText is empty, if not retrieve input and store it in a ContentValues object
         String input = ((EditText) findViewById(R.id.editTextTaskDescription)).getText().toString();
         if(input.length() == 0){
@@ -57,7 +56,7 @@ public class AddTaskActivity extends AppCompatActivity {
         }
         ContentValues ContentVals = new ContentValues();
         ContentVals.put(TaskContract.TaskEntry.COLUMN_DESCRIPTION,input);
-        ContentVals.put(TaskContract.TaskEntry.COLUMN_PRIORITY,input);
+        ContentVals.put(TaskContract.TaskEntry.COLUMN_PRIORITY,mPriority);
         // TODO (7) Insert new task data via a ContentResolver
         Uri uri = getContentResolver().insert(TaskContract.TaskEntry.CONTENT_URI,ContentVals);
         // TODO (8) Display the URI that's returned with a Toast

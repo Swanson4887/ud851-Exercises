@@ -86,7 +86,7 @@ public class TaskContentProvider extends ContentProvider {
         Uri returnUri;
         switch(match) {
             case TASKS:
-                long id = db.insert(TaskContract.PATH_TASKS,null,values);
+                long id = db.insert(TaskContract.TaskEntry.TABLE_NAME,null,values);
                 if (id > 0) {
                     returnUri = ContentUris.withAppendedId(TaskContract.TaskEntry.CONTENT_URI, id);
                 } else {
