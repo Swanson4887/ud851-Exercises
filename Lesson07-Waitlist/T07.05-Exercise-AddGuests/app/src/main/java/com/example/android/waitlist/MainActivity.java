@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private GuestListAdapter mAdapter;
     private SQLiteDatabase mDb;
 
-    // TODO (1) Create local EditText members for mNewGuestNameEditText and mNewPartySizeEditText
+    private EditText mNewGuestNameEditText;
+    private EditText mNewPartySizeEditText;
 
     // TODO (13) Create a constant string LOG_TAG that is equal to the class.getSimpleName()
 
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         // Set local attributes to corresponding views
         waitlistRecyclerView = (RecyclerView) this.findViewById(R.id.all_guests_list_view);
 
-        // TODO (2) Set the Edit texts to the corresponding views using findViewById
+        mNewGuestNameEditText = (EditText) this.findViewById(R.id.person_name_edit_text);
+        mNewPartySizeEditText = (EditText) this.findViewById(R.id.party_count_edit_text);
 
         // Set layout for the RecyclerView, because it's a list we are using the linear layout
         waitlistRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -48,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         // because you will be adding restaurant customers
         mDb = dbHelper.getWritableDatabase();
 
-        // TODO (3) Remove this fake data call since we will be inserting our own data now
-        TestUtil.insertFakeData(mDb);
 
         // Get all guest info from the database and save in a cursor
         Cursor cursor = getAllGuests();
@@ -105,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TODO (4) Create a new addGuest method
+    private String addGuest(){
+        ContentValues ConValues =
+    }
 
     // TODO (5) Inside, create a ContentValues instance to pass the values onto the insert query
 
