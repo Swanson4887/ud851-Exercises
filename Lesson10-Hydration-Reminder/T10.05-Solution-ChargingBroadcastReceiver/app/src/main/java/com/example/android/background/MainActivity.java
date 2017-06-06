@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private Toast mToast;
 
-    ChargingBroadcastReceiver mChargingReceiver;
+    BroadcastReceiver mChargingReceiver;
     IntentFilter mChargingIntentFilter;
 
     @Override
